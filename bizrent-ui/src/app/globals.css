@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  /* BizRent brand colors */
+  --color-bizrent-navy: #1E3A8A;
+  --color-bizrent-blue: #1D4ED8;
+  --color-bizrent-emerald: #10B981;
+  --color-bizrent-forest: #065F46;
+  --color-bizrent-amber: #F59E0B;
+  --color-bizrent-red: #DC2626;
+  --color-bizrent-orange: #EA580C;
+  --color-bizrent-slate: #0F172A;
+  --color-bizrent-light: #F8FAFC;
+  --color-bizrent-indigo: #6366F1;
+
+  /* Font */
+  --font-sans: var(--font-inter), Inter, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'Courier New', monospace;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px 0 rgba(0,0,0,0.08), 0 1px 2px -1px rgba(0,0,0,0.06);
+  --shadow-card-hover: 0 4px 12px 0 rgba(0,0,0,0.10), 0 2px 4px -1px rgba(0,0,0,0.06);
+}
+
+/* Status system CSS custom properties */
+:root {
+  --status-pending-bg: #FEF3C7;
+  --status-pending-text: #92400E;
+  --status-approved-bg: #D1FAE5;
+  --status-approved-text: #065F46;
+  --status-rejected-bg: #FEE2E2;
+  --status-rejected-text: #991B1B;
+  --status-overdue-bg: #FED7AA;
+  --status-overdue-text: #9A3412;
+  --status-due-bg: #E0E7FF;
+  --status-due-text: #3730A3;
+  --status-paid-bg: #D1FAE5;
+  --status-paid-text: #065F46;
+  --status-partial-bg: #DBEAFE;
+  --status-partial-text: #1E40AF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #F8FAFC;
+  color: #0F172A;
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }

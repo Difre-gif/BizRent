@@ -1,0 +1,1754 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as $Enums from "../enums.js";
+import type * as Prisma from "../internal/prismaNamespace.js";
+export type tenanciesModel = runtime.Types.Result.DefaultSelection<Prisma.$tenanciesPayload>;
+export type AggregateTenancies = {
+    _count: TenanciesCountAggregateOutputType | null;
+    _avg: TenanciesAvgAggregateOutputType | null;
+    _sum: TenanciesSumAggregateOutputType | null;
+    _min: TenanciesMinAggregateOutputType | null;
+    _max: TenanciesMaxAggregateOutputType | null;
+};
+export type TenanciesAvgAggregateOutputType = {
+    agreed_rent: runtime.Decimal | null;
+    deposit_amount: runtime.Decimal | null;
+};
+export type TenanciesSumAggregateOutputType = {
+    agreed_rent: runtime.Decimal | null;
+    deposit_amount: runtime.Decimal | null;
+};
+export type TenanciesMinAggregateOutputType = {
+    id: string | null;
+    org_id: string | null;
+    unit_id: string | null;
+    tenant_user_id: string | null;
+    start_date: Date | null;
+    end_date: Date | null;
+    agreed_rent: runtime.Decimal | null;
+    deposit_amount: runtime.Decimal | null;
+    status: $Enums.tenancy_status_enum | null;
+    terminated_at: Date | null;
+    terminated_by: string | null;
+    termination_reason: string | null;
+    created_by: string | null;
+    created_at: Date | null;
+    updated_at: Date | null;
+};
+export type TenanciesMaxAggregateOutputType = {
+    id: string | null;
+    org_id: string | null;
+    unit_id: string | null;
+    tenant_user_id: string | null;
+    start_date: Date | null;
+    end_date: Date | null;
+    agreed_rent: runtime.Decimal | null;
+    deposit_amount: runtime.Decimal | null;
+    status: $Enums.tenancy_status_enum | null;
+    terminated_at: Date | null;
+    terminated_by: string | null;
+    termination_reason: string | null;
+    created_by: string | null;
+    created_at: Date | null;
+    updated_at: Date | null;
+};
+export type TenanciesCountAggregateOutputType = {
+    id: number;
+    org_id: number;
+    unit_id: number;
+    tenant_user_id: number;
+    start_date: number;
+    end_date: number;
+    agreed_rent: number;
+    deposit_amount: number;
+    status: number;
+    terminated_at: number;
+    terminated_by: number;
+    termination_reason: number;
+    created_by: number;
+    created_at: number;
+    updated_at: number;
+    _all: number;
+};
+export type TenanciesAvgAggregateInputType = {
+    agreed_rent?: true;
+    deposit_amount?: true;
+};
+export type TenanciesSumAggregateInputType = {
+    agreed_rent?: true;
+    deposit_amount?: true;
+};
+export type TenanciesMinAggregateInputType = {
+    id?: true;
+    org_id?: true;
+    unit_id?: true;
+    tenant_user_id?: true;
+    start_date?: true;
+    end_date?: true;
+    agreed_rent?: true;
+    deposit_amount?: true;
+    status?: true;
+    terminated_at?: true;
+    terminated_by?: true;
+    termination_reason?: true;
+    created_by?: true;
+    created_at?: true;
+    updated_at?: true;
+};
+export type TenanciesMaxAggregateInputType = {
+    id?: true;
+    org_id?: true;
+    unit_id?: true;
+    tenant_user_id?: true;
+    start_date?: true;
+    end_date?: true;
+    agreed_rent?: true;
+    deposit_amount?: true;
+    status?: true;
+    terminated_at?: true;
+    terminated_by?: true;
+    termination_reason?: true;
+    created_by?: true;
+    created_at?: true;
+    updated_at?: true;
+};
+export type TenanciesCountAggregateInputType = {
+    id?: true;
+    org_id?: true;
+    unit_id?: true;
+    tenant_user_id?: true;
+    start_date?: true;
+    end_date?: true;
+    agreed_rent?: true;
+    deposit_amount?: true;
+    status?: true;
+    terminated_at?: true;
+    terminated_by?: true;
+    termination_reason?: true;
+    created_by?: true;
+    created_at?: true;
+    updated_at?: true;
+    _all?: true;
+};
+export type TenanciesAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.tenanciesWhereInput;
+    orderBy?: Prisma.tenanciesOrderByWithRelationInput | Prisma.tenanciesOrderByWithRelationInput[];
+    cursor?: Prisma.tenanciesWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    _count?: true | TenanciesCountAggregateInputType;
+    _avg?: TenanciesAvgAggregateInputType;
+    _sum?: TenanciesSumAggregateInputType;
+    _min?: TenanciesMinAggregateInputType;
+    _max?: TenanciesMaxAggregateInputType;
+};
+export type GetTenanciesAggregateType<T extends TenanciesAggregateArgs> = {
+    [P in keyof T & keyof AggregateTenancies]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateTenancies[P]> : Prisma.GetScalarType<T[P], AggregateTenancies[P]>;
+};
+export type tenanciesGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.tenanciesWhereInput;
+    orderBy?: Prisma.tenanciesOrderByWithAggregationInput | Prisma.tenanciesOrderByWithAggregationInput[];
+    by: Prisma.TenanciesScalarFieldEnum[] | Prisma.TenanciesScalarFieldEnum;
+    having?: Prisma.tenanciesScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: TenanciesCountAggregateInputType | true;
+    _avg?: TenanciesAvgAggregateInputType;
+    _sum?: TenanciesSumAggregateInputType;
+    _min?: TenanciesMinAggregateInputType;
+    _max?: TenanciesMaxAggregateInputType;
+};
+export type TenanciesGroupByOutputType = {
+    id: string;
+    org_id: string;
+    unit_id: string;
+    tenant_user_id: string;
+    start_date: Date;
+    end_date: Date | null;
+    agreed_rent: runtime.Decimal;
+    deposit_amount: runtime.Decimal;
+    status: $Enums.tenancy_status_enum;
+    terminated_at: Date | null;
+    terminated_by: string | null;
+    termination_reason: string | null;
+    created_by: string;
+    created_at: Date;
+    updated_at: Date;
+    _count: TenanciesCountAggregateOutputType | null;
+    _avg: TenanciesAvgAggregateOutputType | null;
+    _sum: TenanciesSumAggregateOutputType | null;
+    _min: TenanciesMinAggregateOutputType | null;
+    _max: TenanciesMaxAggregateOutputType | null;
+};
+export type GetTenanciesGroupByPayload<T extends tenanciesGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<TenanciesGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof TenanciesGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], TenanciesGroupByOutputType[P]> : Prisma.GetScalarType<T[P], TenanciesGroupByOutputType[P]>;
+}>>;
+export type tenanciesWhereInput = {
+    AND?: Prisma.tenanciesWhereInput | Prisma.tenanciesWhereInput[];
+    OR?: Prisma.tenanciesWhereInput[];
+    NOT?: Prisma.tenanciesWhereInput | Prisma.tenanciesWhereInput[];
+    id?: Prisma.UuidFilter<"tenancies"> | string;
+    org_id?: Prisma.UuidFilter<"tenancies"> | string;
+    unit_id?: Prisma.UuidFilter<"tenancies"> | string;
+    tenant_user_id?: Prisma.UuidFilter<"tenancies"> | string;
+    start_date?: Prisma.DateTimeFilter<"tenancies"> | Date | string;
+    end_date?: Prisma.DateTimeNullableFilter<"tenancies"> | Date | string | null;
+    agreed_rent?: Prisma.DecimalFilter<"tenancies"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFilter<"tenancies"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFilter<"tenancies"> | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.DateTimeNullableFilter<"tenancies"> | Date | string | null;
+    terminated_by?: Prisma.UuidNullableFilter<"tenancies"> | string | null;
+    termination_reason?: Prisma.StringNullableFilter<"tenancies"> | string | null;
+    created_by?: Prisma.UuidFilter<"tenancies"> | string;
+    created_at?: Prisma.DateTimeFilter<"tenancies"> | Date | string;
+    updated_at?: Prisma.DateTimeFilter<"tenancies"> | Date | string;
+    invoices?: Prisma.InvoicesListRelationFilter;
+    users_tenancies_created_byTousers?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>;
+    organisations?: Prisma.XOR<Prisma.OrganisationsScalarRelationFilter, Prisma.organisationsWhereInput>;
+    users_tenancies_tenant_user_idTousers?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>;
+    users_tenancies_terminated_byTousers?: Prisma.XOR<Prisma.UsersNullableScalarRelationFilter, Prisma.usersWhereInput> | null;
+    units?: Prisma.XOR<Prisma.UnitsScalarRelationFilter, Prisma.unitsWhereInput>;
+};
+export type tenanciesOrderByWithRelationInput = {
+    id?: Prisma.SortOrder;
+    org_id?: Prisma.SortOrder;
+    unit_id?: Prisma.SortOrder;
+    tenant_user_id?: Prisma.SortOrder;
+    start_date?: Prisma.SortOrder;
+    end_date?: Prisma.SortOrderInput | Prisma.SortOrder;
+    agreed_rent?: Prisma.SortOrder;
+    deposit_amount?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    terminated_at?: Prisma.SortOrderInput | Prisma.SortOrder;
+    terminated_by?: Prisma.SortOrderInput | Prisma.SortOrder;
+    termination_reason?: Prisma.SortOrderInput | Prisma.SortOrder;
+    created_by?: Prisma.SortOrder;
+    created_at?: Prisma.SortOrder;
+    updated_at?: Prisma.SortOrder;
+    invoices?: Prisma.invoicesOrderByRelationAggregateInput;
+    users_tenancies_created_byTousers?: Prisma.usersOrderByWithRelationInput;
+    organisations?: Prisma.organisationsOrderByWithRelationInput;
+    users_tenancies_tenant_user_idTousers?: Prisma.usersOrderByWithRelationInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersOrderByWithRelationInput;
+    units?: Prisma.unitsOrderByWithRelationInput;
+};
+export type tenanciesWhereUniqueInput = Prisma.AtLeast<{
+    id?: string;
+    unit_id_status?: Prisma.tenanciesUnit_idStatusCompoundUniqueInput;
+    AND?: Prisma.tenanciesWhereInput | Prisma.tenanciesWhereInput[];
+    OR?: Prisma.tenanciesWhereInput[];
+    NOT?: Prisma.tenanciesWhereInput | Prisma.tenanciesWhereInput[];
+    org_id?: Prisma.UuidFilter<"tenancies"> | string;
+    unit_id?: Prisma.UuidFilter<"tenancies"> | string;
+    tenant_user_id?: Prisma.UuidFilter<"tenancies"> | string;
+    start_date?: Prisma.DateTimeFilter<"tenancies"> | Date | string;
+    end_date?: Prisma.DateTimeNullableFilter<"tenancies"> | Date | string | null;
+    agreed_rent?: Prisma.DecimalFilter<"tenancies"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFilter<"tenancies"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFilter<"tenancies"> | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.DateTimeNullableFilter<"tenancies"> | Date | string | null;
+    terminated_by?: Prisma.UuidNullableFilter<"tenancies"> | string | null;
+    termination_reason?: Prisma.StringNullableFilter<"tenancies"> | string | null;
+    created_by?: Prisma.UuidFilter<"tenancies"> | string;
+    created_at?: Prisma.DateTimeFilter<"tenancies"> | Date | string;
+    updated_at?: Prisma.DateTimeFilter<"tenancies"> | Date | string;
+    invoices?: Prisma.InvoicesListRelationFilter;
+    users_tenancies_created_byTousers?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>;
+    organisations?: Prisma.XOR<Prisma.OrganisationsScalarRelationFilter, Prisma.organisationsWhereInput>;
+    users_tenancies_tenant_user_idTousers?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>;
+    users_tenancies_terminated_byTousers?: Prisma.XOR<Prisma.UsersNullableScalarRelationFilter, Prisma.usersWhereInput> | null;
+    units?: Prisma.XOR<Prisma.UnitsScalarRelationFilter, Prisma.unitsWhereInput>;
+}, "id" | "unit_id_status">;
+export type tenanciesOrderByWithAggregationInput = {
+    id?: Prisma.SortOrder;
+    org_id?: Prisma.SortOrder;
+    unit_id?: Prisma.SortOrder;
+    tenant_user_id?: Prisma.SortOrder;
+    start_date?: Prisma.SortOrder;
+    end_date?: Prisma.SortOrderInput | Prisma.SortOrder;
+    agreed_rent?: Prisma.SortOrder;
+    deposit_amount?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    terminated_at?: Prisma.SortOrderInput | Prisma.SortOrder;
+    terminated_by?: Prisma.SortOrderInput | Prisma.SortOrder;
+    termination_reason?: Prisma.SortOrderInput | Prisma.SortOrder;
+    created_by?: Prisma.SortOrder;
+    created_at?: Prisma.SortOrder;
+    updated_at?: Prisma.SortOrder;
+    _count?: Prisma.tenanciesCountOrderByAggregateInput;
+    _avg?: Prisma.tenanciesAvgOrderByAggregateInput;
+    _max?: Prisma.tenanciesMaxOrderByAggregateInput;
+    _min?: Prisma.tenanciesMinOrderByAggregateInput;
+    _sum?: Prisma.tenanciesSumOrderByAggregateInput;
+};
+export type tenanciesScalarWhereWithAggregatesInput = {
+    AND?: Prisma.tenanciesScalarWhereWithAggregatesInput | Prisma.tenanciesScalarWhereWithAggregatesInput[];
+    OR?: Prisma.tenanciesScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.tenanciesScalarWhereWithAggregatesInput | Prisma.tenanciesScalarWhereWithAggregatesInput[];
+    id?: Prisma.UuidWithAggregatesFilter<"tenancies"> | string;
+    org_id?: Prisma.UuidWithAggregatesFilter<"tenancies"> | string;
+    unit_id?: Prisma.UuidWithAggregatesFilter<"tenancies"> | string;
+    tenant_user_id?: Prisma.UuidWithAggregatesFilter<"tenancies"> | string;
+    start_date?: Prisma.DateTimeWithAggregatesFilter<"tenancies"> | Date | string;
+    end_date?: Prisma.DateTimeNullableWithAggregatesFilter<"tenancies"> | Date | string | null;
+    agreed_rent?: Prisma.DecimalWithAggregatesFilter<"tenancies"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalWithAggregatesFilter<"tenancies"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumWithAggregatesFilter<"tenancies"> | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"tenancies"> | Date | string | null;
+    terminated_by?: Prisma.UuidNullableWithAggregatesFilter<"tenancies"> | string | null;
+    termination_reason?: Prisma.StringNullableWithAggregatesFilter<"tenancies"> | string | null;
+    created_by?: Prisma.UuidWithAggregatesFilter<"tenancies"> | string;
+    created_at?: Prisma.DateTimeWithAggregatesFilter<"tenancies"> | Date | string;
+    updated_at?: Prisma.DateTimeWithAggregatesFilter<"tenancies"> | Date | string;
+};
+export type tenanciesCreateInput = {
+    id?: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    termination_reason?: string | null;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesCreateNestedManyWithoutTenanciesInput;
+    users_tenancies_created_byTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_created_byTousersInput;
+    organisations: Prisma.organisationsCreateNestedOneWithoutTenanciesInput;
+    users_tenancies_tenant_user_idTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_tenant_user_idTousersInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_terminated_byTousersInput;
+    units: Prisma.unitsCreateNestedOneWithoutTenanciesInput;
+};
+export type tenanciesUncheckedCreateInput = {
+    id?: string;
+    org_id: string;
+    unit_id: string;
+    tenant_user_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    terminated_by?: string | null;
+    termination_reason?: string | null;
+    created_by: string;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesUncheckedCreateNestedManyWithoutTenanciesInput;
+};
+export type tenanciesUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUpdateManyWithoutTenanciesNestedInput;
+    users_tenancies_created_byTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_created_byTousersNestedInput;
+    organisations?: Prisma.organisationsUpdateOneRequiredWithoutTenanciesNestedInput;
+    users_tenancies_tenant_user_idTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_tenant_user_idTousersNestedInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersUpdateOneWithoutTenancies_tenancies_terminated_byTousersNestedInput;
+    units?: Prisma.unitsUpdateOneRequiredWithoutTenanciesNestedInput;
+};
+export type tenanciesUncheckedUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    org_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    unit_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tenant_user_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    terminated_by?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUncheckedUpdateManyWithoutTenanciesNestedInput;
+};
+export type tenanciesCreateManyInput = {
+    id?: string;
+    org_id: string;
+    unit_id: string;
+    tenant_user_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    terminated_by?: string | null;
+    termination_reason?: string | null;
+    created_by: string;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+};
+export type tenanciesUpdateManyMutationInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type tenanciesUncheckedUpdateManyInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    org_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    unit_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tenant_user_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    terminated_by?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type TenanciesScalarRelationFilter = {
+    is?: Prisma.tenanciesWhereInput;
+    isNot?: Prisma.tenanciesWhereInput;
+};
+export type TenanciesListRelationFilter = {
+    every?: Prisma.tenanciesWhereInput;
+    some?: Prisma.tenanciesWhereInput;
+    none?: Prisma.tenanciesWhereInput;
+};
+export type tenanciesOrderByRelationAggregateInput = {
+    _count?: Prisma.SortOrder;
+};
+export type tenanciesUnit_idStatusCompoundUniqueInput = {
+    unit_id: string;
+    status: $Enums.tenancy_status_enum;
+};
+export type tenanciesCountOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    org_id?: Prisma.SortOrder;
+    unit_id?: Prisma.SortOrder;
+    tenant_user_id?: Prisma.SortOrder;
+    start_date?: Prisma.SortOrder;
+    end_date?: Prisma.SortOrder;
+    agreed_rent?: Prisma.SortOrder;
+    deposit_amount?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    terminated_at?: Prisma.SortOrder;
+    terminated_by?: Prisma.SortOrder;
+    termination_reason?: Prisma.SortOrder;
+    created_by?: Prisma.SortOrder;
+    created_at?: Prisma.SortOrder;
+    updated_at?: Prisma.SortOrder;
+};
+export type tenanciesAvgOrderByAggregateInput = {
+    agreed_rent?: Prisma.SortOrder;
+    deposit_amount?: Prisma.SortOrder;
+};
+export type tenanciesMaxOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    org_id?: Prisma.SortOrder;
+    unit_id?: Prisma.SortOrder;
+    tenant_user_id?: Prisma.SortOrder;
+    start_date?: Prisma.SortOrder;
+    end_date?: Prisma.SortOrder;
+    agreed_rent?: Prisma.SortOrder;
+    deposit_amount?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    terminated_at?: Prisma.SortOrder;
+    terminated_by?: Prisma.SortOrder;
+    termination_reason?: Prisma.SortOrder;
+    created_by?: Prisma.SortOrder;
+    created_at?: Prisma.SortOrder;
+    updated_at?: Prisma.SortOrder;
+};
+export type tenanciesMinOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    org_id?: Prisma.SortOrder;
+    unit_id?: Prisma.SortOrder;
+    tenant_user_id?: Prisma.SortOrder;
+    start_date?: Prisma.SortOrder;
+    end_date?: Prisma.SortOrder;
+    agreed_rent?: Prisma.SortOrder;
+    deposit_amount?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    terminated_at?: Prisma.SortOrder;
+    terminated_by?: Prisma.SortOrder;
+    termination_reason?: Prisma.SortOrder;
+    created_by?: Prisma.SortOrder;
+    created_at?: Prisma.SortOrder;
+    updated_at?: Prisma.SortOrder;
+};
+export type tenanciesSumOrderByAggregateInput = {
+    agreed_rent?: Prisma.SortOrder;
+    deposit_amount?: Prisma.SortOrder;
+};
+export type tenanciesCreateNestedOneWithoutInvoicesInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutInvoicesInput, Prisma.tenanciesUncheckedCreateWithoutInvoicesInput>;
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutInvoicesInput;
+    connect?: Prisma.tenanciesWhereUniqueInput;
+};
+export type tenanciesUpdateOneRequiredWithoutInvoicesNestedInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutInvoicesInput, Prisma.tenanciesUncheckedCreateWithoutInvoicesInput>;
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutInvoicesInput;
+    upsert?: Prisma.tenanciesUpsertWithoutInvoicesInput;
+    connect?: Prisma.tenanciesWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.tenanciesUpdateToOneWithWhereWithoutInvoicesInput, Prisma.tenanciesUpdateWithoutInvoicesInput>, Prisma.tenanciesUncheckedUpdateWithoutInvoicesInput>;
+};
+export type tenanciesCreateNestedManyWithoutOrganisationsInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutOrganisationsInput, Prisma.tenanciesUncheckedCreateWithoutOrganisationsInput> | Prisma.tenanciesCreateWithoutOrganisationsInput[] | Prisma.tenanciesUncheckedCreateWithoutOrganisationsInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutOrganisationsInput | Prisma.tenanciesCreateOrConnectWithoutOrganisationsInput[];
+    createMany?: Prisma.tenanciesCreateManyOrganisationsInputEnvelope;
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+};
+export type tenanciesUncheckedCreateNestedManyWithoutOrganisationsInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutOrganisationsInput, Prisma.tenanciesUncheckedCreateWithoutOrganisationsInput> | Prisma.tenanciesCreateWithoutOrganisationsInput[] | Prisma.tenanciesUncheckedCreateWithoutOrganisationsInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutOrganisationsInput | Prisma.tenanciesCreateOrConnectWithoutOrganisationsInput[];
+    createMany?: Prisma.tenanciesCreateManyOrganisationsInputEnvelope;
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+};
+export type tenanciesUpdateManyWithoutOrganisationsNestedInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutOrganisationsInput, Prisma.tenanciesUncheckedCreateWithoutOrganisationsInput> | Prisma.tenanciesCreateWithoutOrganisationsInput[] | Prisma.tenanciesUncheckedCreateWithoutOrganisationsInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutOrganisationsInput | Prisma.tenanciesCreateOrConnectWithoutOrganisationsInput[];
+    upsert?: Prisma.tenanciesUpsertWithWhereUniqueWithoutOrganisationsInput | Prisma.tenanciesUpsertWithWhereUniqueWithoutOrganisationsInput[];
+    createMany?: Prisma.tenanciesCreateManyOrganisationsInputEnvelope;
+    set?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    disconnect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    delete?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    update?: Prisma.tenanciesUpdateWithWhereUniqueWithoutOrganisationsInput | Prisma.tenanciesUpdateWithWhereUniqueWithoutOrganisationsInput[];
+    updateMany?: Prisma.tenanciesUpdateManyWithWhereWithoutOrganisationsInput | Prisma.tenanciesUpdateManyWithWhereWithoutOrganisationsInput[];
+    deleteMany?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+};
+export type tenanciesUncheckedUpdateManyWithoutOrganisationsNestedInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutOrganisationsInput, Prisma.tenanciesUncheckedCreateWithoutOrganisationsInput> | Prisma.tenanciesCreateWithoutOrganisationsInput[] | Prisma.tenanciesUncheckedCreateWithoutOrganisationsInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutOrganisationsInput | Prisma.tenanciesCreateOrConnectWithoutOrganisationsInput[];
+    upsert?: Prisma.tenanciesUpsertWithWhereUniqueWithoutOrganisationsInput | Prisma.tenanciesUpsertWithWhereUniqueWithoutOrganisationsInput[];
+    createMany?: Prisma.tenanciesCreateManyOrganisationsInputEnvelope;
+    set?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    disconnect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    delete?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    update?: Prisma.tenanciesUpdateWithWhereUniqueWithoutOrganisationsInput | Prisma.tenanciesUpdateWithWhereUniqueWithoutOrganisationsInput[];
+    updateMany?: Prisma.tenanciesUpdateManyWithWhereWithoutOrganisationsInput | Prisma.tenanciesUpdateManyWithWhereWithoutOrganisationsInput[];
+    deleteMany?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+};
+export type Enumtenancy_status_enumFieldUpdateOperationsInput = {
+    set?: $Enums.tenancy_status_enum;
+};
+export type tenanciesCreateNestedManyWithoutUnitsInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUnitsInput, Prisma.tenanciesUncheckedCreateWithoutUnitsInput> | Prisma.tenanciesCreateWithoutUnitsInput[] | Prisma.tenanciesUncheckedCreateWithoutUnitsInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUnitsInput | Prisma.tenanciesCreateOrConnectWithoutUnitsInput[];
+    createMany?: Prisma.tenanciesCreateManyUnitsInputEnvelope;
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+};
+export type tenanciesUncheckedCreateNestedManyWithoutUnitsInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUnitsInput, Prisma.tenanciesUncheckedCreateWithoutUnitsInput> | Prisma.tenanciesCreateWithoutUnitsInput[] | Prisma.tenanciesUncheckedCreateWithoutUnitsInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUnitsInput | Prisma.tenanciesCreateOrConnectWithoutUnitsInput[];
+    createMany?: Prisma.tenanciesCreateManyUnitsInputEnvelope;
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+};
+export type tenanciesUpdateManyWithoutUnitsNestedInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUnitsInput, Prisma.tenanciesUncheckedCreateWithoutUnitsInput> | Prisma.tenanciesCreateWithoutUnitsInput[] | Prisma.tenanciesUncheckedCreateWithoutUnitsInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUnitsInput | Prisma.tenanciesCreateOrConnectWithoutUnitsInput[];
+    upsert?: Prisma.tenanciesUpsertWithWhereUniqueWithoutUnitsInput | Prisma.tenanciesUpsertWithWhereUniqueWithoutUnitsInput[];
+    createMany?: Prisma.tenanciesCreateManyUnitsInputEnvelope;
+    set?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    disconnect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    delete?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    update?: Prisma.tenanciesUpdateWithWhereUniqueWithoutUnitsInput | Prisma.tenanciesUpdateWithWhereUniqueWithoutUnitsInput[];
+    updateMany?: Prisma.tenanciesUpdateManyWithWhereWithoutUnitsInput | Prisma.tenanciesUpdateManyWithWhereWithoutUnitsInput[];
+    deleteMany?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+};
+export type tenanciesUncheckedUpdateManyWithoutUnitsNestedInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUnitsInput, Prisma.tenanciesUncheckedCreateWithoutUnitsInput> | Prisma.tenanciesCreateWithoutUnitsInput[] | Prisma.tenanciesUncheckedCreateWithoutUnitsInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUnitsInput | Prisma.tenanciesCreateOrConnectWithoutUnitsInput[];
+    upsert?: Prisma.tenanciesUpsertWithWhereUniqueWithoutUnitsInput | Prisma.tenanciesUpsertWithWhereUniqueWithoutUnitsInput[];
+    createMany?: Prisma.tenanciesCreateManyUnitsInputEnvelope;
+    set?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    disconnect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    delete?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    update?: Prisma.tenanciesUpdateWithWhereUniqueWithoutUnitsInput | Prisma.tenanciesUpdateWithWhereUniqueWithoutUnitsInput[];
+    updateMany?: Prisma.tenanciesUpdateManyWithWhereWithoutUnitsInput | Prisma.tenanciesUpdateManyWithWhereWithoutUnitsInput[];
+    deleteMany?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+};
+export type tenanciesCreateNestedManyWithoutUsers_tenancies_created_byTousersInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_created_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_created_byTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_created_byTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_created_byTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_created_byTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_created_byTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_created_byTousersInputEnvelope;
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+};
+export type tenanciesCreateNestedManyWithoutUsers_tenancies_tenant_user_idTousersInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_tenant_user_idTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_tenant_user_idTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_tenant_user_idTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_tenant_user_idTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_tenant_user_idTousersInputEnvelope;
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+};
+export type tenanciesCreateNestedManyWithoutUsers_tenancies_terminated_byTousersInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_terminated_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_terminated_byTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_terminated_byTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_terminated_byTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_terminated_byTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_terminated_byTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_terminated_byTousersInputEnvelope;
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+};
+export type tenanciesUncheckedCreateNestedManyWithoutUsers_tenancies_created_byTousersInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_created_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_created_byTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_created_byTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_created_byTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_created_byTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_created_byTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_created_byTousersInputEnvelope;
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+};
+export type tenanciesUncheckedCreateNestedManyWithoutUsers_tenancies_tenant_user_idTousersInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_tenant_user_idTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_tenant_user_idTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_tenant_user_idTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_tenant_user_idTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_tenant_user_idTousersInputEnvelope;
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+};
+export type tenanciesUncheckedCreateNestedManyWithoutUsers_tenancies_terminated_byTousersInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_terminated_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_terminated_byTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_terminated_byTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_terminated_byTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_terminated_byTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_terminated_byTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_terminated_byTousersInputEnvelope;
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+};
+export type tenanciesUpdateManyWithoutUsers_tenancies_created_byTousersNestedInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_created_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_created_byTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_created_byTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_created_byTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_created_byTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_created_byTousersInput[];
+    upsert?: Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_created_byTousersInput | Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_created_byTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_created_byTousersInputEnvelope;
+    set?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    disconnect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    delete?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    update?: Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_created_byTousersInput | Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_created_byTousersInput[];
+    updateMany?: Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_created_byTousersInput | Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_created_byTousersInput[];
+    deleteMany?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+};
+export type tenanciesUpdateManyWithoutUsers_tenancies_tenant_user_idTousersNestedInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_tenant_user_idTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_tenant_user_idTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_tenant_user_idTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_tenant_user_idTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    upsert?: Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_tenant_user_idTousersInput | Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_tenant_user_idTousersInputEnvelope;
+    set?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    disconnect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    delete?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    update?: Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_tenant_user_idTousersInput | Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    updateMany?: Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_tenant_user_idTousersInput | Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    deleteMany?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+};
+export type tenanciesUpdateManyWithoutUsers_tenancies_terminated_byTousersNestedInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_terminated_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_terminated_byTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_terminated_byTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_terminated_byTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_terminated_byTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_terminated_byTousersInput[];
+    upsert?: Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_terminated_byTousersInput | Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_terminated_byTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_terminated_byTousersInputEnvelope;
+    set?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    disconnect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    delete?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    update?: Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_terminated_byTousersInput | Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_terminated_byTousersInput[];
+    updateMany?: Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_terminated_byTousersInput | Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_terminated_byTousersInput[];
+    deleteMany?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+};
+export type tenanciesUncheckedUpdateManyWithoutUsers_tenancies_created_byTousersNestedInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_created_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_created_byTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_created_byTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_created_byTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_created_byTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_created_byTousersInput[];
+    upsert?: Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_created_byTousersInput | Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_created_byTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_created_byTousersInputEnvelope;
+    set?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    disconnect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    delete?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    update?: Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_created_byTousersInput | Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_created_byTousersInput[];
+    updateMany?: Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_created_byTousersInput | Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_created_byTousersInput[];
+    deleteMany?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+};
+export type tenanciesUncheckedUpdateManyWithoutUsers_tenancies_tenant_user_idTousersNestedInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_tenant_user_idTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_tenant_user_idTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_tenant_user_idTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_tenant_user_idTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    upsert?: Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_tenant_user_idTousersInput | Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_tenant_user_idTousersInputEnvelope;
+    set?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    disconnect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    delete?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    update?: Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_tenant_user_idTousersInput | Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    updateMany?: Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_tenant_user_idTousersInput | Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_tenant_user_idTousersInput[];
+    deleteMany?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+};
+export type tenanciesUncheckedUpdateManyWithoutUsers_tenancies_terminated_byTousersNestedInput = {
+    create?: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_terminated_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_terminated_byTousersInput> | Prisma.tenanciesCreateWithoutUsers_tenancies_terminated_byTousersInput[] | Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_terminated_byTousersInput[];
+    connectOrCreate?: Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_terminated_byTousersInput | Prisma.tenanciesCreateOrConnectWithoutUsers_tenancies_terminated_byTousersInput[];
+    upsert?: Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_terminated_byTousersInput | Prisma.tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_terminated_byTousersInput[];
+    createMany?: Prisma.tenanciesCreateManyUsers_tenancies_terminated_byTousersInputEnvelope;
+    set?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    disconnect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    delete?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    connect?: Prisma.tenanciesWhereUniqueInput | Prisma.tenanciesWhereUniqueInput[];
+    update?: Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_terminated_byTousersInput | Prisma.tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_terminated_byTousersInput[];
+    updateMany?: Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_terminated_byTousersInput | Prisma.tenanciesUpdateManyWithWhereWithoutUsers_tenancies_terminated_byTousersInput[];
+    deleteMany?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+};
+export type tenanciesCreateWithoutInvoicesInput = {
+    id?: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    termination_reason?: string | null;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    users_tenancies_created_byTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_created_byTousersInput;
+    organisations: Prisma.organisationsCreateNestedOneWithoutTenanciesInput;
+    users_tenancies_tenant_user_idTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_tenant_user_idTousersInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_terminated_byTousersInput;
+    units: Prisma.unitsCreateNestedOneWithoutTenanciesInput;
+};
+export type tenanciesUncheckedCreateWithoutInvoicesInput = {
+    id?: string;
+    org_id: string;
+    unit_id: string;
+    tenant_user_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    terminated_by?: string | null;
+    termination_reason?: string | null;
+    created_by: string;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+};
+export type tenanciesCreateOrConnectWithoutInvoicesInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutInvoicesInput, Prisma.tenanciesUncheckedCreateWithoutInvoicesInput>;
+};
+export type tenanciesUpsertWithoutInvoicesInput = {
+    update: Prisma.XOR<Prisma.tenanciesUpdateWithoutInvoicesInput, Prisma.tenanciesUncheckedUpdateWithoutInvoicesInput>;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutInvoicesInput, Prisma.tenanciesUncheckedCreateWithoutInvoicesInput>;
+    where?: Prisma.tenanciesWhereInput;
+};
+export type tenanciesUpdateToOneWithWhereWithoutInvoicesInput = {
+    where?: Prisma.tenanciesWhereInput;
+    data: Prisma.XOR<Prisma.tenanciesUpdateWithoutInvoicesInput, Prisma.tenanciesUncheckedUpdateWithoutInvoicesInput>;
+};
+export type tenanciesUpdateWithoutInvoicesInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    users_tenancies_created_byTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_created_byTousersNestedInput;
+    organisations?: Prisma.organisationsUpdateOneRequiredWithoutTenanciesNestedInput;
+    users_tenancies_tenant_user_idTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_tenant_user_idTousersNestedInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersUpdateOneWithoutTenancies_tenancies_terminated_byTousersNestedInput;
+    units?: Prisma.unitsUpdateOneRequiredWithoutTenanciesNestedInput;
+};
+export type tenanciesUncheckedUpdateWithoutInvoicesInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    org_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    unit_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tenant_user_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    terminated_by?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type tenanciesCreateWithoutOrganisationsInput = {
+    id?: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    termination_reason?: string | null;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesCreateNestedManyWithoutTenanciesInput;
+    users_tenancies_created_byTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_created_byTousersInput;
+    users_tenancies_tenant_user_idTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_tenant_user_idTousersInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_terminated_byTousersInput;
+    units: Prisma.unitsCreateNestedOneWithoutTenanciesInput;
+};
+export type tenanciesUncheckedCreateWithoutOrganisationsInput = {
+    id?: string;
+    unit_id: string;
+    tenant_user_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    terminated_by?: string | null;
+    termination_reason?: string | null;
+    created_by: string;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesUncheckedCreateNestedManyWithoutTenanciesInput;
+};
+export type tenanciesCreateOrConnectWithoutOrganisationsInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutOrganisationsInput, Prisma.tenanciesUncheckedCreateWithoutOrganisationsInput>;
+};
+export type tenanciesCreateManyOrganisationsInputEnvelope = {
+    data: Prisma.tenanciesCreateManyOrganisationsInput | Prisma.tenanciesCreateManyOrganisationsInput[];
+    skipDuplicates?: boolean;
+};
+export type tenanciesUpsertWithWhereUniqueWithoutOrganisationsInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    update: Prisma.XOR<Prisma.tenanciesUpdateWithoutOrganisationsInput, Prisma.tenanciesUncheckedUpdateWithoutOrganisationsInput>;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutOrganisationsInput, Prisma.tenanciesUncheckedCreateWithoutOrganisationsInput>;
+};
+export type tenanciesUpdateWithWhereUniqueWithoutOrganisationsInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    data: Prisma.XOR<Prisma.tenanciesUpdateWithoutOrganisationsInput, Prisma.tenanciesUncheckedUpdateWithoutOrganisationsInput>;
+};
+export type tenanciesUpdateManyWithWhereWithoutOrganisationsInput = {
+    where: Prisma.tenanciesScalarWhereInput;
+    data: Prisma.XOR<Prisma.tenanciesUpdateManyMutationInput, Prisma.tenanciesUncheckedUpdateManyWithoutOrganisationsInput>;
+};
+export type tenanciesScalarWhereInput = {
+    AND?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+    OR?: Prisma.tenanciesScalarWhereInput[];
+    NOT?: Prisma.tenanciesScalarWhereInput | Prisma.tenanciesScalarWhereInput[];
+    id?: Prisma.UuidFilter<"tenancies"> | string;
+    org_id?: Prisma.UuidFilter<"tenancies"> | string;
+    unit_id?: Prisma.UuidFilter<"tenancies"> | string;
+    tenant_user_id?: Prisma.UuidFilter<"tenancies"> | string;
+    start_date?: Prisma.DateTimeFilter<"tenancies"> | Date | string;
+    end_date?: Prisma.DateTimeNullableFilter<"tenancies"> | Date | string | null;
+    agreed_rent?: Prisma.DecimalFilter<"tenancies"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFilter<"tenancies"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFilter<"tenancies"> | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.DateTimeNullableFilter<"tenancies"> | Date | string | null;
+    terminated_by?: Prisma.UuidNullableFilter<"tenancies"> | string | null;
+    termination_reason?: Prisma.StringNullableFilter<"tenancies"> | string | null;
+    created_by?: Prisma.UuidFilter<"tenancies"> | string;
+    created_at?: Prisma.DateTimeFilter<"tenancies"> | Date | string;
+    updated_at?: Prisma.DateTimeFilter<"tenancies"> | Date | string;
+};
+export type tenanciesCreateWithoutUnitsInput = {
+    id?: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    termination_reason?: string | null;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesCreateNestedManyWithoutTenanciesInput;
+    users_tenancies_created_byTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_created_byTousersInput;
+    organisations: Prisma.organisationsCreateNestedOneWithoutTenanciesInput;
+    users_tenancies_tenant_user_idTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_tenant_user_idTousersInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_terminated_byTousersInput;
+};
+export type tenanciesUncheckedCreateWithoutUnitsInput = {
+    id?: string;
+    org_id: string;
+    tenant_user_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    terminated_by?: string | null;
+    termination_reason?: string | null;
+    created_by: string;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesUncheckedCreateNestedManyWithoutTenanciesInput;
+};
+export type tenanciesCreateOrConnectWithoutUnitsInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutUnitsInput, Prisma.tenanciesUncheckedCreateWithoutUnitsInput>;
+};
+export type tenanciesCreateManyUnitsInputEnvelope = {
+    data: Prisma.tenanciesCreateManyUnitsInput | Prisma.tenanciesCreateManyUnitsInput[];
+    skipDuplicates?: boolean;
+};
+export type tenanciesUpsertWithWhereUniqueWithoutUnitsInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    update: Prisma.XOR<Prisma.tenanciesUpdateWithoutUnitsInput, Prisma.tenanciesUncheckedUpdateWithoutUnitsInput>;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutUnitsInput, Prisma.tenanciesUncheckedCreateWithoutUnitsInput>;
+};
+export type tenanciesUpdateWithWhereUniqueWithoutUnitsInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    data: Prisma.XOR<Prisma.tenanciesUpdateWithoutUnitsInput, Prisma.tenanciesUncheckedUpdateWithoutUnitsInput>;
+};
+export type tenanciesUpdateManyWithWhereWithoutUnitsInput = {
+    where: Prisma.tenanciesScalarWhereInput;
+    data: Prisma.XOR<Prisma.tenanciesUpdateManyMutationInput, Prisma.tenanciesUncheckedUpdateManyWithoutUnitsInput>;
+};
+export type tenanciesCreateWithoutUsers_tenancies_created_byTousersInput = {
+    id?: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    termination_reason?: string | null;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesCreateNestedManyWithoutTenanciesInput;
+    organisations: Prisma.organisationsCreateNestedOneWithoutTenanciesInput;
+    users_tenancies_tenant_user_idTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_tenant_user_idTousersInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_terminated_byTousersInput;
+    units: Prisma.unitsCreateNestedOneWithoutTenanciesInput;
+};
+export type tenanciesUncheckedCreateWithoutUsers_tenancies_created_byTousersInput = {
+    id?: string;
+    org_id: string;
+    unit_id: string;
+    tenant_user_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    terminated_by?: string | null;
+    termination_reason?: string | null;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesUncheckedCreateNestedManyWithoutTenanciesInput;
+};
+export type tenanciesCreateOrConnectWithoutUsers_tenancies_created_byTousersInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_created_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_created_byTousersInput>;
+};
+export type tenanciesCreateManyUsers_tenancies_created_byTousersInputEnvelope = {
+    data: Prisma.tenanciesCreateManyUsers_tenancies_created_byTousersInput | Prisma.tenanciesCreateManyUsers_tenancies_created_byTousersInput[];
+    skipDuplicates?: boolean;
+};
+export type tenanciesCreateWithoutUsers_tenancies_tenant_user_idTousersInput = {
+    id?: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    termination_reason?: string | null;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesCreateNestedManyWithoutTenanciesInput;
+    users_tenancies_created_byTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_created_byTousersInput;
+    organisations: Prisma.organisationsCreateNestedOneWithoutTenanciesInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_terminated_byTousersInput;
+    units: Prisma.unitsCreateNestedOneWithoutTenanciesInput;
+};
+export type tenanciesUncheckedCreateWithoutUsers_tenancies_tenant_user_idTousersInput = {
+    id?: string;
+    org_id: string;
+    unit_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    terminated_by?: string | null;
+    termination_reason?: string | null;
+    created_by: string;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesUncheckedCreateNestedManyWithoutTenanciesInput;
+};
+export type tenanciesCreateOrConnectWithoutUsers_tenancies_tenant_user_idTousersInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_tenant_user_idTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_tenant_user_idTousersInput>;
+};
+export type tenanciesCreateManyUsers_tenancies_tenant_user_idTousersInputEnvelope = {
+    data: Prisma.tenanciesCreateManyUsers_tenancies_tenant_user_idTousersInput | Prisma.tenanciesCreateManyUsers_tenancies_tenant_user_idTousersInput[];
+    skipDuplicates?: boolean;
+};
+export type tenanciesCreateWithoutUsers_tenancies_terminated_byTousersInput = {
+    id?: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    termination_reason?: string | null;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesCreateNestedManyWithoutTenanciesInput;
+    users_tenancies_created_byTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_created_byTousersInput;
+    organisations: Prisma.organisationsCreateNestedOneWithoutTenanciesInput;
+    users_tenancies_tenant_user_idTousers: Prisma.usersCreateNestedOneWithoutTenancies_tenancies_tenant_user_idTousersInput;
+    units: Prisma.unitsCreateNestedOneWithoutTenanciesInput;
+};
+export type tenanciesUncheckedCreateWithoutUsers_tenancies_terminated_byTousersInput = {
+    id?: string;
+    org_id: string;
+    unit_id: string;
+    tenant_user_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    termination_reason?: string | null;
+    created_by: string;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+    invoices?: Prisma.invoicesUncheckedCreateNestedManyWithoutTenanciesInput;
+};
+export type tenanciesCreateOrConnectWithoutUsers_tenancies_terminated_byTousersInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_terminated_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_terminated_byTousersInput>;
+};
+export type tenanciesCreateManyUsers_tenancies_terminated_byTousersInputEnvelope = {
+    data: Prisma.tenanciesCreateManyUsers_tenancies_terminated_byTousersInput | Prisma.tenanciesCreateManyUsers_tenancies_terminated_byTousersInput[];
+    skipDuplicates?: boolean;
+};
+export type tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_created_byTousersInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    update: Prisma.XOR<Prisma.tenanciesUpdateWithoutUsers_tenancies_created_byTousersInput, Prisma.tenanciesUncheckedUpdateWithoutUsers_tenancies_created_byTousersInput>;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_created_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_created_byTousersInput>;
+};
+export type tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_created_byTousersInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    data: Prisma.XOR<Prisma.tenanciesUpdateWithoutUsers_tenancies_created_byTousersInput, Prisma.tenanciesUncheckedUpdateWithoutUsers_tenancies_created_byTousersInput>;
+};
+export type tenanciesUpdateManyWithWhereWithoutUsers_tenancies_created_byTousersInput = {
+    where: Prisma.tenanciesScalarWhereInput;
+    data: Prisma.XOR<Prisma.tenanciesUpdateManyMutationInput, Prisma.tenanciesUncheckedUpdateManyWithoutUsers_tenancies_created_byTousersInput>;
+};
+export type tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_tenant_user_idTousersInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    update: Prisma.XOR<Prisma.tenanciesUpdateWithoutUsers_tenancies_tenant_user_idTousersInput, Prisma.tenanciesUncheckedUpdateWithoutUsers_tenancies_tenant_user_idTousersInput>;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_tenant_user_idTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_tenant_user_idTousersInput>;
+};
+export type tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_tenant_user_idTousersInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    data: Prisma.XOR<Prisma.tenanciesUpdateWithoutUsers_tenancies_tenant_user_idTousersInput, Prisma.tenanciesUncheckedUpdateWithoutUsers_tenancies_tenant_user_idTousersInput>;
+};
+export type tenanciesUpdateManyWithWhereWithoutUsers_tenancies_tenant_user_idTousersInput = {
+    where: Prisma.tenanciesScalarWhereInput;
+    data: Prisma.XOR<Prisma.tenanciesUpdateManyMutationInput, Prisma.tenanciesUncheckedUpdateManyWithoutUsers_tenancies_tenant_user_idTousersInput>;
+};
+export type tenanciesUpsertWithWhereUniqueWithoutUsers_tenancies_terminated_byTousersInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    update: Prisma.XOR<Prisma.tenanciesUpdateWithoutUsers_tenancies_terminated_byTousersInput, Prisma.tenanciesUncheckedUpdateWithoutUsers_tenancies_terminated_byTousersInput>;
+    create: Prisma.XOR<Prisma.tenanciesCreateWithoutUsers_tenancies_terminated_byTousersInput, Prisma.tenanciesUncheckedCreateWithoutUsers_tenancies_terminated_byTousersInput>;
+};
+export type tenanciesUpdateWithWhereUniqueWithoutUsers_tenancies_terminated_byTousersInput = {
+    where: Prisma.tenanciesWhereUniqueInput;
+    data: Prisma.XOR<Prisma.tenanciesUpdateWithoutUsers_tenancies_terminated_byTousersInput, Prisma.tenanciesUncheckedUpdateWithoutUsers_tenancies_terminated_byTousersInput>;
+};
+export type tenanciesUpdateManyWithWhereWithoutUsers_tenancies_terminated_byTousersInput = {
+    where: Prisma.tenanciesScalarWhereInput;
+    data: Prisma.XOR<Prisma.tenanciesUpdateManyMutationInput, Prisma.tenanciesUncheckedUpdateManyWithoutUsers_tenancies_terminated_byTousersInput>;
+};
+export type tenanciesCreateManyOrganisationsInput = {
+    id?: string;
+    unit_id: string;
+    tenant_user_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    terminated_by?: string | null;
+    termination_reason?: string | null;
+    created_by: string;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+};
+export type tenanciesUpdateWithoutOrganisationsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUpdateManyWithoutTenanciesNestedInput;
+    users_tenancies_created_byTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_created_byTousersNestedInput;
+    users_tenancies_tenant_user_idTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_tenant_user_idTousersNestedInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersUpdateOneWithoutTenancies_tenancies_terminated_byTousersNestedInput;
+    units?: Prisma.unitsUpdateOneRequiredWithoutTenanciesNestedInput;
+};
+export type tenanciesUncheckedUpdateWithoutOrganisationsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    unit_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tenant_user_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    terminated_by?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUncheckedUpdateManyWithoutTenanciesNestedInput;
+};
+export type tenanciesUncheckedUpdateManyWithoutOrganisationsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    unit_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tenant_user_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    terminated_by?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type tenanciesCreateManyUnitsInput = {
+    id?: string;
+    org_id: string;
+    tenant_user_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    terminated_by?: string | null;
+    termination_reason?: string | null;
+    created_by: string;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+};
+export type tenanciesUpdateWithoutUnitsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUpdateManyWithoutTenanciesNestedInput;
+    users_tenancies_created_byTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_created_byTousersNestedInput;
+    organisations?: Prisma.organisationsUpdateOneRequiredWithoutTenanciesNestedInput;
+    users_tenancies_tenant_user_idTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_tenant_user_idTousersNestedInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersUpdateOneWithoutTenancies_tenancies_terminated_byTousersNestedInput;
+};
+export type tenanciesUncheckedUpdateWithoutUnitsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    org_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tenant_user_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    terminated_by?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUncheckedUpdateManyWithoutTenanciesNestedInput;
+};
+export type tenanciesUncheckedUpdateManyWithoutUnitsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    org_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tenant_user_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    terminated_by?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type tenanciesCreateManyUsers_tenancies_created_byTousersInput = {
+    id?: string;
+    org_id: string;
+    unit_id: string;
+    tenant_user_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    terminated_by?: string | null;
+    termination_reason?: string | null;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+};
+export type tenanciesCreateManyUsers_tenancies_tenant_user_idTousersInput = {
+    id?: string;
+    org_id: string;
+    unit_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    terminated_by?: string | null;
+    termination_reason?: string | null;
+    created_by: string;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+};
+export type tenanciesCreateManyUsers_tenancies_terminated_byTousersInput = {
+    id?: string;
+    org_id: string;
+    unit_id: string;
+    tenant_user_id: string;
+    start_date: Date | string;
+    end_date?: Date | string | null;
+    agreed_rent: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.tenancy_status_enum;
+    terminated_at?: Date | string | null;
+    termination_reason?: string | null;
+    created_by: string;
+    created_at?: Date | string;
+    updated_at?: Date | string;
+};
+export type tenanciesUpdateWithoutUsers_tenancies_created_byTousersInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUpdateManyWithoutTenanciesNestedInput;
+    organisations?: Prisma.organisationsUpdateOneRequiredWithoutTenanciesNestedInput;
+    users_tenancies_tenant_user_idTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_tenant_user_idTousersNestedInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersUpdateOneWithoutTenancies_tenancies_terminated_byTousersNestedInput;
+    units?: Prisma.unitsUpdateOneRequiredWithoutTenanciesNestedInput;
+};
+export type tenanciesUncheckedUpdateWithoutUsers_tenancies_created_byTousersInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    org_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    unit_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tenant_user_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    terminated_by?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUncheckedUpdateManyWithoutTenanciesNestedInput;
+};
+export type tenanciesUncheckedUpdateManyWithoutUsers_tenancies_created_byTousersInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    org_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    unit_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tenant_user_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    terminated_by?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type tenanciesUpdateWithoutUsers_tenancies_tenant_user_idTousersInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUpdateManyWithoutTenanciesNestedInput;
+    users_tenancies_created_byTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_created_byTousersNestedInput;
+    organisations?: Prisma.organisationsUpdateOneRequiredWithoutTenanciesNestedInput;
+    users_tenancies_terminated_byTousers?: Prisma.usersUpdateOneWithoutTenancies_tenancies_terminated_byTousersNestedInput;
+    units?: Prisma.unitsUpdateOneRequiredWithoutTenanciesNestedInput;
+};
+export type tenanciesUncheckedUpdateWithoutUsers_tenancies_tenant_user_idTousersInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    org_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    unit_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    terminated_by?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUncheckedUpdateManyWithoutTenanciesNestedInput;
+};
+export type tenanciesUncheckedUpdateManyWithoutUsers_tenancies_tenant_user_idTousersInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    org_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    unit_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    terminated_by?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type tenanciesUpdateWithoutUsers_tenancies_terminated_byTousersInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUpdateManyWithoutTenanciesNestedInput;
+    users_tenancies_created_byTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_created_byTousersNestedInput;
+    organisations?: Prisma.organisationsUpdateOneRequiredWithoutTenanciesNestedInput;
+    users_tenancies_tenant_user_idTousers?: Prisma.usersUpdateOneRequiredWithoutTenancies_tenancies_tenant_user_idTousersNestedInput;
+    units?: Prisma.unitsUpdateOneRequiredWithoutTenanciesNestedInput;
+};
+export type tenanciesUncheckedUpdateWithoutUsers_tenancies_terminated_byTousersInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    org_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    unit_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tenant_user_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    invoices?: Prisma.invoicesUncheckedUpdateManyWithoutTenanciesNestedInput;
+};
+export type tenanciesUncheckedUpdateManyWithoutUsers_tenancies_terminated_byTousersInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    org_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    unit_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    tenant_user_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    start_date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    agreed_rent?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    deposit_amount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.Enumtenancy_status_enumFieldUpdateOperationsInput | $Enums.tenancy_status_enum;
+    terminated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    termination_reason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    created_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type TenanciesCountOutputType = {
+    invoices: number;
+};
+export type TenanciesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    invoices?: boolean | TenanciesCountOutputTypeCountInvoicesArgs;
+};
+export type TenanciesCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.TenanciesCountOutputTypeSelect<ExtArgs> | null;
+};
+export type TenanciesCountOutputTypeCountInvoicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.invoicesWhereInput;
+};
+export type tenanciesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    org_id?: boolean;
+    unit_id?: boolean;
+    tenant_user_id?: boolean;
+    start_date?: boolean;
+    end_date?: boolean;
+    agreed_rent?: boolean;
+    deposit_amount?: boolean;
+    status?: boolean;
+    terminated_at?: boolean;
+    terminated_by?: boolean;
+    termination_reason?: boolean;
+    created_by?: boolean;
+    created_at?: boolean;
+    updated_at?: boolean;
+    invoices?: boolean | Prisma.tenancies$invoicesArgs<ExtArgs>;
+    users_tenancies_created_byTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    organisations?: boolean | Prisma.organisationsDefaultArgs<ExtArgs>;
+    users_tenancies_tenant_user_idTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    users_tenancies_terminated_byTousers?: boolean | Prisma.tenancies$users_tenancies_terminated_byTousersArgs<ExtArgs>;
+    units?: boolean | Prisma.unitsDefaultArgs<ExtArgs>;
+    _count?: boolean | Prisma.TenanciesCountOutputTypeDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["tenancies"]>;
+export type tenanciesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    org_id?: boolean;
+    unit_id?: boolean;
+    tenant_user_id?: boolean;
+    start_date?: boolean;
+    end_date?: boolean;
+    agreed_rent?: boolean;
+    deposit_amount?: boolean;
+    status?: boolean;
+    terminated_at?: boolean;
+    terminated_by?: boolean;
+    termination_reason?: boolean;
+    created_by?: boolean;
+    created_at?: boolean;
+    updated_at?: boolean;
+    users_tenancies_created_byTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    organisations?: boolean | Prisma.organisationsDefaultArgs<ExtArgs>;
+    users_tenancies_tenant_user_idTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    users_tenancies_terminated_byTousers?: boolean | Prisma.tenancies$users_tenancies_terminated_byTousersArgs<ExtArgs>;
+    units?: boolean | Prisma.unitsDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["tenancies"]>;
+export type tenanciesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    org_id?: boolean;
+    unit_id?: boolean;
+    tenant_user_id?: boolean;
+    start_date?: boolean;
+    end_date?: boolean;
+    agreed_rent?: boolean;
+    deposit_amount?: boolean;
+    status?: boolean;
+    terminated_at?: boolean;
+    terminated_by?: boolean;
+    termination_reason?: boolean;
+    created_by?: boolean;
+    created_at?: boolean;
+    updated_at?: boolean;
+    users_tenancies_created_byTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    organisations?: boolean | Prisma.organisationsDefaultArgs<ExtArgs>;
+    users_tenancies_tenant_user_idTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    users_tenancies_terminated_byTousers?: boolean | Prisma.tenancies$users_tenancies_terminated_byTousersArgs<ExtArgs>;
+    units?: boolean | Prisma.unitsDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["tenancies"]>;
+export type tenanciesSelectScalar = {
+    id?: boolean;
+    org_id?: boolean;
+    unit_id?: boolean;
+    tenant_user_id?: boolean;
+    start_date?: boolean;
+    end_date?: boolean;
+    agreed_rent?: boolean;
+    deposit_amount?: boolean;
+    status?: boolean;
+    terminated_at?: boolean;
+    terminated_by?: boolean;
+    termination_reason?: boolean;
+    created_by?: boolean;
+    created_at?: boolean;
+    updated_at?: boolean;
+};
+export type tenanciesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "org_id" | "unit_id" | "tenant_user_id" | "start_date" | "end_date" | "agreed_rent" | "deposit_amount" | "status" | "terminated_at" | "terminated_by" | "termination_reason" | "created_by" | "created_at" | "updated_at", ExtArgs["result"]["tenancies"]>;
+export type tenanciesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    invoices?: boolean | Prisma.tenancies$invoicesArgs<ExtArgs>;
+    users_tenancies_created_byTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    organisations?: boolean | Prisma.organisationsDefaultArgs<ExtArgs>;
+    users_tenancies_tenant_user_idTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    users_tenancies_terminated_byTousers?: boolean | Prisma.tenancies$users_tenancies_terminated_byTousersArgs<ExtArgs>;
+    units?: boolean | Prisma.unitsDefaultArgs<ExtArgs>;
+    _count?: boolean | Prisma.TenanciesCountOutputTypeDefaultArgs<ExtArgs>;
+};
+export type tenanciesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    users_tenancies_created_byTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    organisations?: boolean | Prisma.organisationsDefaultArgs<ExtArgs>;
+    users_tenancies_tenant_user_idTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    users_tenancies_terminated_byTousers?: boolean | Prisma.tenancies$users_tenancies_terminated_byTousersArgs<ExtArgs>;
+    units?: boolean | Prisma.unitsDefaultArgs<ExtArgs>;
+};
+export type tenanciesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    users_tenancies_created_byTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    organisations?: boolean | Prisma.organisationsDefaultArgs<ExtArgs>;
+    users_tenancies_tenant_user_idTousers?: boolean | Prisma.usersDefaultArgs<ExtArgs>;
+    users_tenancies_terminated_byTousers?: boolean | Prisma.tenancies$users_tenancies_terminated_byTousersArgs<ExtArgs>;
+    units?: boolean | Prisma.unitsDefaultArgs<ExtArgs>;
+};
+export type $tenanciesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "tenancies";
+    objects: {
+        invoices: Prisma.$invoicesPayload<ExtArgs>[];
+        users_tenancies_created_byTousers: Prisma.$usersPayload<ExtArgs>;
+        organisations: Prisma.$organisationsPayload<ExtArgs>;
+        users_tenancies_tenant_user_idTousers: Prisma.$usersPayload<ExtArgs>;
+        users_tenancies_terminated_byTousers: Prisma.$usersPayload<ExtArgs> | null;
+        units: Prisma.$unitsPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        id: string;
+        org_id: string;
+        unit_id: string;
+        tenant_user_id: string;
+        start_date: Date;
+        end_date: Date | null;
+        agreed_rent: runtime.Decimal;
+        deposit_amount: runtime.Decimal;
+        status: $Enums.tenancy_status_enum;
+        terminated_at: Date | null;
+        terminated_by: string | null;
+        termination_reason: string | null;
+        created_by: string;
+        created_at: Date;
+        updated_at: Date;
+    }, ExtArgs["result"]["tenancies"]>;
+    composites: {};
+};
+export type tenanciesGetPayload<S extends boolean | null | undefined | tenanciesDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$tenanciesPayload, S>;
+export type tenanciesCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<tenanciesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: TenanciesCountAggregateInputType | true;
+};
+export interface tenanciesDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['tenancies'];
+        meta: {
+            name: 'tenancies';
+        };
+    };
+    findUnique<T extends tenanciesFindUniqueArgs>(args: Prisma.SelectSubset<T, tenanciesFindUniqueArgs<ExtArgs>>): Prisma.Prisma__tenanciesClient<runtime.Types.Result.GetResult<Prisma.$tenanciesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    findUniqueOrThrow<T extends tenanciesFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, tenanciesFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__tenanciesClient<runtime.Types.Result.GetResult<Prisma.$tenanciesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    findFirst<T extends tenanciesFindFirstArgs>(args?: Prisma.SelectSubset<T, tenanciesFindFirstArgs<ExtArgs>>): Prisma.Prisma__tenanciesClient<runtime.Types.Result.GetResult<Prisma.$tenanciesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    findFirstOrThrow<T extends tenanciesFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, tenanciesFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__tenanciesClient<runtime.Types.Result.GetResult<Prisma.$tenanciesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    findMany<T extends tenanciesFindManyArgs>(args?: Prisma.SelectSubset<T, tenanciesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tenanciesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    create<T extends tenanciesCreateArgs>(args: Prisma.SelectSubset<T, tenanciesCreateArgs<ExtArgs>>): Prisma.Prisma__tenanciesClient<runtime.Types.Result.GetResult<Prisma.$tenanciesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    createMany<T extends tenanciesCreateManyArgs>(args?: Prisma.SelectSubset<T, tenanciesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    createManyAndReturn<T extends tenanciesCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, tenanciesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tenanciesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    delete<T extends tenanciesDeleteArgs>(args: Prisma.SelectSubset<T, tenanciesDeleteArgs<ExtArgs>>): Prisma.Prisma__tenanciesClient<runtime.Types.Result.GetResult<Prisma.$tenanciesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    update<T extends tenanciesUpdateArgs>(args: Prisma.SelectSubset<T, tenanciesUpdateArgs<ExtArgs>>): Prisma.Prisma__tenanciesClient<runtime.Types.Result.GetResult<Prisma.$tenanciesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    deleteMany<T extends tenanciesDeleteManyArgs>(args?: Prisma.SelectSubset<T, tenanciesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    updateMany<T extends tenanciesUpdateManyArgs>(args: Prisma.SelectSubset<T, tenanciesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    updateManyAndReturn<T extends tenanciesUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, tenanciesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tenanciesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    upsert<T extends tenanciesUpsertArgs>(args: Prisma.SelectSubset<T, tenanciesUpsertArgs<ExtArgs>>): Prisma.Prisma__tenanciesClient<runtime.Types.Result.GetResult<Prisma.$tenanciesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    count<T extends tenanciesCountArgs>(args?: Prisma.Subset<T, tenanciesCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], TenanciesCountAggregateOutputType> : number>;
+    aggregate<T extends TenanciesAggregateArgs>(args: Prisma.Subset<T, TenanciesAggregateArgs>): Prisma.PrismaPromise<GetTenanciesAggregateType<T>>;
+    groupBy<T extends tenanciesGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: tenanciesGroupByArgs['orderBy'];
+    } : {
+        orderBy?: tenanciesGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, tenanciesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTenanciesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    readonly fields: tenanciesFieldRefs;
+}
+export interface Prisma__tenanciesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    invoices<T extends Prisma.tenancies$invoicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tenancies$invoicesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$invoicesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    users_tenancies_created_byTousers<T extends Prisma.usersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usersDefaultArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    organisations<T extends Prisma.organisationsDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.organisationsDefaultArgs<ExtArgs>>): Prisma.Prisma__organisationsClient<runtime.Types.Result.GetResult<Prisma.$organisationsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    users_tenancies_tenant_user_idTousers<T extends Prisma.usersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usersDefaultArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    users_tenancies_terminated_byTousers<T extends Prisma.tenancies$users_tenancies_terminated_byTousersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tenancies$users_tenancies_terminated_byTousersArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    units<T extends Prisma.unitsDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.unitsDefaultArgs<ExtArgs>>): Prisma.Prisma__unitsClient<runtime.Types.Result.GetResult<Prisma.$unitsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+export interface tenanciesFieldRefs {
+    readonly id: Prisma.FieldRef<"tenancies", 'String'>;
+    readonly org_id: Prisma.FieldRef<"tenancies", 'String'>;
+    readonly unit_id: Prisma.FieldRef<"tenancies", 'String'>;
+    readonly tenant_user_id: Prisma.FieldRef<"tenancies", 'String'>;
+    readonly start_date: Prisma.FieldRef<"tenancies", 'DateTime'>;
+    readonly end_date: Prisma.FieldRef<"tenancies", 'DateTime'>;
+    readonly agreed_rent: Prisma.FieldRef<"tenancies", 'Decimal'>;
+    readonly deposit_amount: Prisma.FieldRef<"tenancies", 'Decimal'>;
+    readonly status: Prisma.FieldRef<"tenancies", 'tenancy_status_enum'>;
+    readonly terminated_at: Prisma.FieldRef<"tenancies", 'DateTime'>;
+    readonly terminated_by: Prisma.FieldRef<"tenancies", 'String'>;
+    readonly termination_reason: Prisma.FieldRef<"tenancies", 'String'>;
+    readonly created_by: Prisma.FieldRef<"tenancies", 'String'>;
+    readonly created_at: Prisma.FieldRef<"tenancies", 'DateTime'>;
+    readonly updated_at: Prisma.FieldRef<"tenancies", 'DateTime'>;
+}
+export type tenanciesFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelect<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    include?: Prisma.tenanciesInclude<ExtArgs> | null;
+    where: Prisma.tenanciesWhereUniqueInput;
+};
+export type tenanciesFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelect<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    include?: Prisma.tenanciesInclude<ExtArgs> | null;
+    where: Prisma.tenanciesWhereUniqueInput;
+};
+export type tenanciesFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelect<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    include?: Prisma.tenanciesInclude<ExtArgs> | null;
+    where?: Prisma.tenanciesWhereInput;
+    orderBy?: Prisma.tenanciesOrderByWithRelationInput | Prisma.tenanciesOrderByWithRelationInput[];
+    cursor?: Prisma.tenanciesWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.TenanciesScalarFieldEnum | Prisma.TenanciesScalarFieldEnum[];
+};
+export type tenanciesFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelect<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    include?: Prisma.tenanciesInclude<ExtArgs> | null;
+    where?: Prisma.tenanciesWhereInput;
+    orderBy?: Prisma.tenanciesOrderByWithRelationInput | Prisma.tenanciesOrderByWithRelationInput[];
+    cursor?: Prisma.tenanciesWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.TenanciesScalarFieldEnum | Prisma.TenanciesScalarFieldEnum[];
+};
+export type tenanciesFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelect<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    include?: Prisma.tenanciesInclude<ExtArgs> | null;
+    where?: Prisma.tenanciesWhereInput;
+    orderBy?: Prisma.tenanciesOrderByWithRelationInput | Prisma.tenanciesOrderByWithRelationInput[];
+    cursor?: Prisma.tenanciesWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.TenanciesScalarFieldEnum | Prisma.TenanciesScalarFieldEnum[];
+};
+export type tenanciesCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelect<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    include?: Prisma.tenanciesInclude<ExtArgs> | null;
+    data: Prisma.XOR<Prisma.tenanciesCreateInput, Prisma.tenanciesUncheckedCreateInput>;
+};
+export type tenanciesCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    data: Prisma.tenanciesCreateManyInput | Prisma.tenanciesCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+export type tenanciesCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelectCreateManyAndReturn<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    data: Prisma.tenanciesCreateManyInput | Prisma.tenanciesCreateManyInput[];
+    skipDuplicates?: boolean;
+    include?: Prisma.tenanciesIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+export type tenanciesUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelect<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    include?: Prisma.tenanciesInclude<ExtArgs> | null;
+    data: Prisma.XOR<Prisma.tenanciesUpdateInput, Prisma.tenanciesUncheckedUpdateInput>;
+    where: Prisma.tenanciesWhereUniqueInput;
+};
+export type tenanciesUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    data: Prisma.XOR<Prisma.tenanciesUpdateManyMutationInput, Prisma.tenanciesUncheckedUpdateManyInput>;
+    where?: Prisma.tenanciesWhereInput;
+    limit?: number;
+};
+export type tenanciesUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelectUpdateManyAndReturn<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    data: Prisma.XOR<Prisma.tenanciesUpdateManyMutationInput, Prisma.tenanciesUncheckedUpdateManyInput>;
+    where?: Prisma.tenanciesWhereInput;
+    limit?: number;
+    include?: Prisma.tenanciesIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+export type tenanciesUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelect<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    include?: Prisma.tenanciesInclude<ExtArgs> | null;
+    where: Prisma.tenanciesWhereUniqueInput;
+    create: Prisma.XOR<Prisma.tenanciesCreateInput, Prisma.tenanciesUncheckedCreateInput>;
+    update: Prisma.XOR<Prisma.tenanciesUpdateInput, Prisma.tenanciesUncheckedUpdateInput>;
+};
+export type tenanciesDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelect<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    include?: Prisma.tenanciesInclude<ExtArgs> | null;
+    where: Prisma.tenanciesWhereUniqueInput;
+};
+export type tenanciesDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.tenanciesWhereInput;
+    limit?: number;
+};
+export type tenancies$invoicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.invoicesSelect<ExtArgs> | null;
+    omit?: Prisma.invoicesOmit<ExtArgs> | null;
+    include?: Prisma.invoicesInclude<ExtArgs> | null;
+    where?: Prisma.invoicesWhereInput;
+    orderBy?: Prisma.invoicesOrderByWithRelationInput | Prisma.invoicesOrderByWithRelationInput[];
+    cursor?: Prisma.invoicesWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.InvoicesScalarFieldEnum | Prisma.InvoicesScalarFieldEnum[];
+};
+export type tenancies$users_tenancies_terminated_byTousersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.usersSelect<ExtArgs> | null;
+    omit?: Prisma.usersOmit<ExtArgs> | null;
+    include?: Prisma.usersInclude<ExtArgs> | null;
+    where?: Prisma.usersWhereInput;
+};
+export type tenanciesDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.tenanciesSelect<ExtArgs> | null;
+    omit?: Prisma.tenanciesOmit<ExtArgs> | null;
+    include?: Prisma.tenanciesInclude<ExtArgs> | null;
+};
