@@ -1,0 +1,14 @@
+{
+  "name": "bizrent-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "bizrent-ui",
+    "bizrent-api"
+  ],
+  "scripts": {
+    "dev": "npm run dev --prefix bizrent-ui",
+    "build": "npm run build --prefix bizrent-ui",
+    "start": "npm run start --prefix bizrent-ui"
+  }
+}
