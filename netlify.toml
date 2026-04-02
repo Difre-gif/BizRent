@@ -1,0 +1,4 @@
+[build]
+  base = "bizrent-ui"
+  command = "npm run build"
+  publish = ".next"
