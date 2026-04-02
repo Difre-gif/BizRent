@@ -81,6 +81,8 @@ export default function RegisterPage() {
         } else {
           errorMessage = err.response.data.message;
         }
+      } else if (err.message) {
+        errorMessage = `Network or Server Error: ${err.message}`;
       }
       setError(errorMessage);
     } finally {
