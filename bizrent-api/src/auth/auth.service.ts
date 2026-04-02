@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException, BadRequestException } from '@nestjs/common';
+import { Injectable, UnauthorizedException, BadRequestException, ConflictException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
@@ -13,6 +13,8 @@ export class AuthService {
   ) {}
 
   async register(registerDto: RegisterDto) {
+    console.log('Register attempt:', registerDto.email);
+    
     const existingUser = await this.prisma.client.users.findUnique({
       where: { email: registerDto.email },
     });
@@ -23,7 +25,8 @@ export class AuthService {
 
     const passwordHash = await bcrypt.hash(registerDto.password, 10);
 
-    return this.prisma.client.$transaction(async (tx) => {
+    try {
+      return await this.prisma.client.$transaction(async (tx) => {
       // 1. Create user
       const user = await tx.users.create({
         data: {
@@ -81,7 +84,7 @@ export class AuthService {
       }
 
       // 3. Generate tokens
-      const tokens = await this.generateTokens(user.id, user.email, orgId, role);
+      const tokens = await this.generateTokens(user.id, user.email, orgId, role, tx);
 
       // 4. Audit Log
       await tx.audit_logs.create({
@@ -97,6 +100,13 @@ export class AuthService {
 
       return tokens;
     });
+    } catch (error: any) {
+      console.error('Registration transaction error:', error);
+      if (error.code === 'P2002') {
+        throw new ConflictException('An account with this email or organisation name already exists.');
+      }
+      throw error;
+    }
   }
 
   async login(loginDto: LoginDto) {
@@ -200,6 +210,7 @@ export class AuthService {
     email: string,
     orgId?: string,
     role?: string,
+    tx?: any,
   ) {
     const payload = { sub: userId, email, orgId, role };
 
@@ -215,7 +226,8 @@ export class AuthService {
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + 7); // 7 days
 
-    await this.prisma.client.refresh_tokens.create({
+    const prismaClient = tx || this.prisma.client;
+    await prismaClient.refresh_tokens.create({
       data: {
         user_id: userId,
         token_hash: tokenHash,

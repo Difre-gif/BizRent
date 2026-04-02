@@ -74,7 +74,15 @@ export default function RegisterPage() {
         router.push("/dashboard");
       }
     } catch (err: any) {
-      setError(err.response?.data?.message || "Registration failed. Please try again.");
+      let errorMessage = "Registration failed. Please try again.";
+      if (err.response?.data?.message) {
+        if (Array.isArray(err.response.data.message)) {
+          errorMessage = err.response.data.message[0];
+        } else {
+          errorMessage = err.response.data.message;
+        }
+      }
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
