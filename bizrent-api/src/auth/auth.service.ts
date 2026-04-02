@@ -27,85 +27,99 @@ export class AuthService {
 
     try {
       return await this.prisma.client.$transaction(async (tx) => {
-      // 1. Create user
-      const user = await tx.users.create({
-        data: {
-          email: registerDto.email,
-          full_name: registerDto.full_name,
-          password_hash: passwordHash,
-        },
-      });
+        // 1. Create user
+        const user = await tx.users.create({
+          data: {
+            email: registerDto.email,
+            full_name: registerDto.full_name,
+            password_hash: passwordHash,
+          },
+        });
 
-      let orgId: string | undefined;
-      let role: string | undefined;
+        let orgId: string | undefined;
+        let role: string | undefined;
 
-      // 2. If LANDLORD, create org and role
-      if (registerDto.role_type === RegisterRoleType.LANDLORD) {
-        if (!registerDto.organisation_name) {
-          throw new BadRequestException('Organisation name is required for landlords');
+        // 2. If LANDLORD, create org and role
+        if (registerDto.role_type === RegisterRoleType.LANDLORD) {
+          if (!registerDto.organisation_name) {
+            throw new BadRequestException('Organisation name is required for landlords');
+          }
+
+          const orgSlug = registerDto.organisation_name
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)+/g, '');
+
+          const existingOrg = await tx.organisations.findUnique({
+            where: { slug: orgSlug },
+          });
+
+          // Add random suffix if slug exists to prevent collision
+          const finalSlug = existingOrg 
+            ? `${orgSlug}-${crypto.randomBytes(2).toString('hex')}`
+            : orgSlug;
+
+          const org = await tx.organisations.create({
+            data: {
+              name: registerDto.organisation_name,
+              email: registerDto.email, // using user email as contact email initially
+              slug: finalSlug,
+            },
+          });
+
+          orgId = org.id;
+          role = 'OWNER';
+
+          await tx.user_organisation_roles.create({
+            data: {
+              user_id: user.id,
+              org_id: org.id,
+              role: 'OWNER',
+            },
+          });
+        } else {
+          // TENANT
+          role = 'TENANT';
         }
 
-        const orgSlug = registerDto.organisation_name
-          .toLowerCase()
-          .replace(/[^a-z0-9]+/g, '-')
-          .replace(/(^-|-$)+/g, '');
+        // 3. Generate tokens
+        const tokens = await this.generateTokens(user.id, user.email, orgId, role, tx);
 
-        const existingOrg = await tx.organisations.findUnique({
-          where: { slug: orgSlug },
-        });
-
-        // Add random suffix if slug exists to prevent collision
-        const finalSlug = existingOrg 
-          ? `${orgSlug}-${crypto.randomBytes(2).toString('hex')}`
-          : orgSlug;
-
-        const org = await tx.organisations.create({
+        // 4. Audit Log
+        await tx.audit_logs.create({
           data: {
-            name: registerDto.organisation_name,
-            email: registerDto.email, // using user email as contact email initially
-            slug: finalSlug,
+            action: 'REGISTER',
+            target_type: 'USER',
+            target_id: user.id,
+            actor_user_id: user.id,
+            actor_role: role as any,
+            org_id: orgId,
           },
         });
 
-        orgId = org.id;
-        role = 'OWNER';
-
-        await tx.user_organisation_roles.create({
-          data: {
-            user_id: user.id,
-            org_id: org.id,
-            role: 'OWNER',
-            is_active: true, // Removed the invalid 'status' field
-          },
-        });
-      } else {
-        // TENANT
-        role = 'TENANT';
-      }
-
-      // 3. Generate tokens
-      const tokens = await this.generateTokens(user.id, user.email, orgId, role, tx);
-
-      // 4. Audit Log
-      await tx.audit_logs.create({
-        data: {
-          action: 'REGISTER',
-          target_type: 'USER',
-          target_id: user.id,
-          actor_user_id: user.id,
-          actor_role: role as any,
-          org_id: orgId,
-        },
+        return tokens;
       });
-
-      return tokens;
-    });
     } catch (error: any) {
       console.error('Registration transaction error:', error);
+      
       if (error.code === 'P2002') {
         throw new ConflictException('An account with this email or organisation name already exists.');
       }
-      throw new BadRequestException(error.message || 'Registration failed due to a server error.');
+      
+      // Clean up Prisma error messages for the frontend
+      let message = error.message || 'Registration failed due to a server error.';
+      if (message.includes('Invalid `tx.')) {
+        // Extract the most relevant part of the Prisma error
+        const lines = message.split('\n');
+        const relevantLine = lines.find(l => l.includes('Unknown arg') || l.includes('Argument'));
+        if (relevantLine) {
+          message = `Database Error: ${relevantLine.trim()}`;
+        } else {
+          message = `Database Error: ${lines[lines.length - 1].trim()}`;
+        }
+      }
+      
+      throw new BadRequestException(message);
     }
   }
 

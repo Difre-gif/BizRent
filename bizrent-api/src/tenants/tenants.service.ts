@@ -47,7 +47,6 @@ export class TenantsService {
           user_id: tenantUserId,
           org_id: orgId,
           role: 'TENANT',
-          is_active: true, // Replaced invalid 'status' field
           invited_by: approvedByUserId,
           invited_at: new Date(),
           accepted_at: new Date(),

@@ -74,16 +74,25 @@ export default function RegisterPage() {
         router.push("/dashboard");
       }
     } catch (err: any) {
+      console.error("Registration error:", err);
+      
       let errorMessage = "Registration failed. Please try again.";
+      
       if (err.response?.data?.message) {
-        if (Array.isArray(err.response.data.message)) {
-          errorMessage = err.response.data.message[0];
+        const msg = err.response.data.message;
+        if (Array.isArray(msg)) {
+          errorMessage = msg[0];
+        } else if (typeof msg === 'string') {
+          errorMessage = msg;
         } else {
-          errorMessage = err.response.data.message;
+          errorMessage = JSON.stringify(msg);
         }
+      } else if (err.response?.data?.error) {
+        errorMessage = err.response.data.error;
       } else if (err.message) {
-        errorMessage = `Network or Server Error: ${err.message}`;
+        errorMessage = `Network Error: ${err.message}`;
       }
+      
       setError(errorMessage);
     } finally {
       setIsLoading(false);
@@ -219,7 +228,11 @@ export default function RegisterPage() {
               />
             </div>
 
-            {error && <p className="text-sm text-bizrent-red">{error}</p>}
+            {error && (
+              <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-bizrent-red break-words">
+                {error}
+              </div>
+            )}
 
             <PrimaryButton type="submit" fullWidth className="mt-6" isLoading={isLoading}>
               Create Account
