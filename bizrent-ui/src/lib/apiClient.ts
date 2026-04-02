@@ -3,7 +3,8 @@ import { useAuthStore } from './store/authStore';
 import Cookies from 'js-cookie';
 
 export const apiClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api/v1',
+  // Use a relative path so the request goes through the Next.js proxy we just created
+  baseURL: '/api/v1',
 });
 
 apiClient.interceptors.request.use((config) => {
