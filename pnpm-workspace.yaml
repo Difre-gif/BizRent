@@ -1,0 +1,3 @@
+packages:
+  - 'bizrent-ui'
+  - 'bizrent-api'
