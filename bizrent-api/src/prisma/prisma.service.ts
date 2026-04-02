@@ -15,18 +15,18 @@ export class PrismaService
     });
     const self = this;
     // Use an extension to apply RLS automatically to queries
-    this.extended = this.$extends({
+    this.extended = (this as any).$extends({
       query: {
         $allModels: {
-          async $allOperations({ args, query }) {
+          async $allOperations({ args, query }: any) {
             const context = requestContext.getStore();
 
             if (context?.orgId) {
               const { orgId, role } = context;
               // Run the query and SET LOCAL inside an array transaction
               // to ensure they execute on the same connection.
-              const [, result] = await self.$transaction([
-                self.$executeRawUnsafe(
+              const [, result] = await (self as any).$transaction([
+                (self as any).$executeRawUnsafe(
                   `SET LOCAL app.current_org_id = '${orgId}'; SET LOCAL app.user_role = '${role || ''}';`,
                 ),
                 query(args),
@@ -42,11 +42,11 @@ export class PrismaService
   }
 
   async onModuleInit() {
-    await this.$connect();
+    await (this as any).$connect();
   }
 
   async onModuleDestroy() {
-    await this.$disconnect();
+    await (this as any).$disconnect();
   }
 
   get client() {
