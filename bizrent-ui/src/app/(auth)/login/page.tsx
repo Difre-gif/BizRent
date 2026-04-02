@@ -46,7 +46,11 @@ export default function LoginPage() {
       }, accessToken);
 
       if (decoded.role === 'TENANT') {
-        router.push("/home");
+        if (!decoded.orgId) {
+          router.push("/pending");
+        } else {
+          router.push("/home");
+        }
       } else {
         router.push("/dashboard");
       }

@@ -75,7 +75,7 @@ export class AuthService {
             user_id: user.id,
             org_id: org.id,
             role: 'OWNER',
-            status: 'APPROVED',
+            is_active: true, // Removed the invalid 'status' field
           },
         });
       } else {
@@ -105,7 +105,7 @@ export class AuthService {
       if (error.code === 'P2002') {
         throw new ConflictException('An account with this email or organisation name already exists.');
       }
-      throw error;
+      throw new BadRequestException(error.message || 'Registration failed due to a server error.');
     }
   }
 
@@ -140,19 +140,19 @@ export class AuthService {
     // Determine primary org and role if exists
     const primaryRole = user.user_organisation_roles[0];
     const orgId = primaryRole?.org_id;
-    const role = primaryRole?.role;
+    const role = primaryRole?.role || 'TENANT'; // Default to TENANT if unassigned
 
     // 4. Create tokens
     const tokens = await this.generateTokens(user.id, user.email, orgId, role);
 
-    // 5. Audit Log (System level action so orgId might be null or user's primary org)
+    // 5. Audit Log
     await this.prisma.client.audit_logs.create({
       data: {
         action: 'LOGIN',
         target_type: 'USER',
         target_id: user.id,
         actor_user_id: user.id,
-        actor_role: role,
+        actor_role: role as any,
         org_id: orgId,
       },
     });
@@ -177,7 +177,6 @@ export class AuthService {
     }
 
     if (storedToken.revoked_at || storedToken.expires_at < new Date()) {
-      // If token was revoked, this is a potential replay attack! Invalidate all tokens for user.
       if (storedToken.revoked_at) {
         await this.prisma.client.refresh_tokens.updateMany({
           where: { user_id: storedToken.user_id },
@@ -195,13 +194,14 @@ export class AuthService {
 
     const user = storedToken.users;
     const primaryRole = user.user_organisation_roles[0];
+    const role = primaryRole?.role || 'TENANT';
 
     // Generate new pair
     return this.generateTokens(
       user.id,
       user.email,
       primaryRole?.org_id,
-      primaryRole?.role,
+      role,
     );
   }
 
