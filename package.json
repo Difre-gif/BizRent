@@ -7,8 +7,8 @@
     "bizrent-api"
   ],
   "scripts": {
-    "dev": "npm run dev --prefix bizrent-ui",
-    "build": "npm run build --prefix bizrent-ui",
-    "start": "npm run start --prefix bizrent-ui"
+    "dev": "npx concurrently \"npm run start:dev --prefix bizrent-api\" \"npm run dev --prefix bizrent-ui\"",
+    "build": "npm run build --prefix bizrent-ui && npm run build --prefix bizrent-api",
+    "start": "npx concurrently \"npm run start:prod --prefix bizrent-api\" \"npm run start --prefix bizrent-ui\""
   }
 }
